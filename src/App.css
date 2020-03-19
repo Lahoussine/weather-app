@@ -15,7 +15,9 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 1vh;
+  
+  min-width: 50vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +30,94 @@
   color: #61dafb;
 }
 
+.container{
+  background-color: #282c34;
+  min-height: 99vh;
+  min-width: 50vw;
+  display: flex;
+  flex-direction: row;
+  color: rgb(14, 155, 236);
+}
+
+.content{
+background-color: #282c34;
+display: flex;
+min-width: 100vw;
+flex-direction: column;
+align-items: center;
+
+font-size: calc(10px + 2vmin);
+color: rgb(14, 155, 236);
+
+
+}
+
+.row{
+  
+ display: flex;
+  flex-direction: row;
+  flex-grow: 1; 
+  flex-wrap: wrap;
+justify-content: space-between;
+min-width: 80vw;
+
+}
+.info{
+  background-color: skyblue !important;
+}
+.warn{
+background-color: orange !important;
+}
+ .error{
+background-color: pink !important;/* pour eviter que la propriété soit ecrasé par la valeur par default du component card material-ui*/
+ }
+.column{
+  
+  display: flex;
+   flex-direction: column;
+   background-color: initial;
+   min-width: 200px;
+ }
+
+ .valueable {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1; 
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-width: 100%;
+  }
+  .value{
+    font-size: 50px;
+    font-weight:bolder;
+  }
+  
+.cardRow{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1; 
+  flex-wrap: wrap;
+justify-content: space-between;
+
+}
+
+.debugBorder{
+  border-style: solid;
+border-color: rgba(238, 14, 14, 0.904);
+}
+.fix{
+  width: 50%;
+}
+.title{
+  font-weight:bolder;
+}
+.description{
+color: rgba(0,0,0,0.54);
+
+}
+.content>h2{
+ margin-bottom: 10vh;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
