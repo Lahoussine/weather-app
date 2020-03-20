@@ -3,6 +3,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import InfoIcon from '@material-ui/icons/Info';
+import Progress from 'react-circle-progress-bar'
 class Home extends Component {
 
   constructor(props) {
@@ -31,14 +32,15 @@ class Home extends Component {
     return (
       <div className="content">
         <h2>Home</h2>
+        <Progress progress={75} />
         <div className="row">
           <Card id="card" className="column info">
             <CardContent>
               <Typography style={{ fontSize: JSON.stringify(styles.title.fontSize) + 'px' }} color="primary" gutterBottom>
-                Information Alert
+                <div className="debugBorder">             Information Alert      </div>
         </Typography>
               <Typography component={'span'} className={JSON.stringify(styles.pos)} gutterBottom>
-                <div className="valueable">
+                <div className="valueable debugBorder">
                   <div className="cardRow value">5</div>
                   <div className="cardRow fix">
                     <div>
@@ -55,23 +57,8 @@ class Home extends Component {
             </CardContent>
 
           </Card>
-          <Card id="card1" className="column info">
-            <CardContent>
-              <Typography style={{ fontSize: JSON.stringify(styles.title.fontSize) + 'px' }} color="primary" gutterBottom>
-                Word of the Day Primary
-        </Typography>
-              <Typography className={JSON.stringify(styles.pos)} color="secondary" gutterBottom>
-                Word of the Day Secondary
-        </Typography>
-              <Typography style={{ fontSize: JSON.stringify(styles.title.fontSize) + 'px' }} color="textPrimary" gutterBottom>
-                Word of the Day textPrimary
-        </Typography>
-              <Typography className={JSON.stringify(styles.pos)} color="textSecondary" gutterBottom>
-                Word of the Day textSecondary
-        </Typography>
-            </CardContent>
 
-          </Card>
+
           <Card id="card2" className="column warn">
             <CardContent>
               <Typography style={{ fontSize: JSON.stringify(styles.title.fontSize) + 'px' }} color="primary" gutterBottom>
