@@ -19,10 +19,10 @@ function App() {
 
           <Layout></Layout>
           <Switch>
-            <Route path="/" component={Home} exact />
-            <Route path="/weather" component={Weather} />
-            <Route path="/settings" component={Settings} />
-            <Route path="/about" component={About} />
+            <Route path="/weather-app" component={Home} exact />
+            <Route path="/weather-app/weather" component={Weather} />
+            <Route path="/weather-app/settings" component={Settings} />
+            <Route path="/weather-app/about" component={About} />
           </Switch>
 
 
