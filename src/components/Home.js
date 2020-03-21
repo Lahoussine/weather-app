@@ -32,24 +32,25 @@ class Home extends Component {
     return (
       <div className="content">
         <h2>Home</h2>
-        <Progress progress={75} />
-        <div className="row">
+
+
+        <div className="row space-between">
           <Card id="card" className="column info">
             <CardContent>
               <Typography style={{ fontSize: JSON.stringify(styles.title.fontSize) + 'px' }} color="primary" gutterBottom>
-                <div className="debugBorder">             Information Alert      </div>
-        </Typography>
+                <div>             Information Alert      </div>
+              </Typography>
               <Typography component={'span'} className={JSON.stringify(styles.pos)} gutterBottom>
-                <div className="valueable debugBorder">
-                  <div className="cardRow value">5</div>
-                  <div className="cardRow fix">
+                <div className="valueable ">
+                  <div className="cardRow value ">5</div>
+                  <div className="cardRow central fix debugBorderFushia">
                     <div>
                       <div className="title">Alert</div>
                       <div className="description" >Alert</div>
                     </div>
                   </div>
-                  <div className="cardRow">
-                    <InfoIcon style={{fontSize: 75}} ></InfoIcon>
+                  <div className="cardRow icon">
+                    <InfoIcon style={{ fontSize: 50 }} ></InfoIcon>
                   </div>
                 </div>
               </Typography>
@@ -93,6 +94,10 @@ class Home extends Component {
             </CardContent>
 
           </Card>
+
+        </div>
+        <div className="row center">
+          <Progress progress={75} />
 
         </div>
 
