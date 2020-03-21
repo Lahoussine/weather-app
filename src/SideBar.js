@@ -11,22 +11,22 @@ class SideBar extends React.Component {
 <ListItem button >
                     <ListItemText>BLALSA</ListItemText>
                 </ListItem>
-            <Link to="/">
+            <Link to="/weather-app">
                 <ListItem button >
                     <ListItemText>Home</ListItemText>
                 </ListItem>
             </Link>
-            <Link to="/weather">
+            <Link to="/weather-app/weather">
                 <ListItem button>
                     <ListItemText>Weather Forecast</ListItemText>
                 </ListItem>
             </Link>
-            <Link to="/settings">
+            <Link to="/weather-app/settings">
                 <ListItem button>
                     <ListItemText>Settings</ListItemText>
                 </ListItem>
             </Link>
-            <Link to="/about">
+            <Link to="/weather-app/about">
                 <ListItem button>
                     <ListItemText>About</ListItemText>
                 </ListItem>
