@@ -44,8 +44,8 @@ class Home extends Component {
                   <div className="cardRow value">5</div>
                   <div className="cardRow fix">
                     <div>
-                      <div className="title">Transaction to Iran</div>
-                      <div className="description" >Sanction country payment description</div>
+                      <div className="title">Alert</div>
+                      <div className="description" >Alert</div>
                     </div>
                   </div>
                   <div className="cardRow">
