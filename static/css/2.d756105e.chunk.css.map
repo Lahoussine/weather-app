@@ -1,1 +1,0 @@
-{"version":3,"sources":["progress.module.css"],"names":[],"mappings":"AAAA,0BACE,uDAA4D,CAC5D,WACF,CAEA,qBACE,aAAc,CACd,UACF","file":"2.d756105e.chunk.css","sourcesContent":[".progress {\r\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\r\n  width: 200px;\r\n}\r\n\r\n.svg {\r\n  display: block;\r\n  width: 100%;\r\n}\r\n"]}
