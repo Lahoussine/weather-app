@@ -58,8 +58,7 @@ color: rgb(14, 155, 236);
   flex-direction: row;
   flex-grow: 1; 
   flex-wrap: wrap;
-
-min-width: 80vw;
+  min-width: 95vw;
 
 }
 .space-between{
@@ -78,12 +77,18 @@ background-color: rgba(235, 91, 8, 0.973) !important;
  .error{
 background-color: pink !important;/* pour eviter que la propriété soit ecrasé par la valeur par default du component card material-ui*/
  }
+ .dark{
+  background-color: #282c34 !important
+ }
 .column{
   
   display: flex;
    flex-direction: column;
    background-color: initial;
    width: 33%;
+ }
+ .full{
+  width: 99%;
  }
 
  .valueable {

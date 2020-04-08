@@ -4,6 +4,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import InfoIcon from '@material-ui/icons/Info';
 import Progress from 'react-circle-progress-bar'
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 class Home extends Component {
 
   constructor(props) {
@@ -34,7 +36,7 @@ class Home extends Component {
         <h2>Home</h2>
 
 
-        <div className="row space-between">
+        <div className="row space-between debugBorderFushia">
           <Card id="card" className="column info">
             <CardContent>
               <Typography style={{ fontSize: JSON.stringify(styles.title.fontSize) + 'px' }} color="primary" gutterBottom>
@@ -44,14 +46,19 @@ class Home extends Component {
                 <div className="valueable ">
                   <div className="cardRow value ">5</div>
                   <div className="cardRow central fix debugBorderFushia">
-                    <div>
-                      <div className="title">Alert</div>
-                      <div className="description" >Alert</div>
+                    <div className="center">
+                      <div className="title">This is a Title</div>
+                      <div className="description" >Description: This is a short description</div>
                     </div>
                   </div>
                   <div className="cardRow icon">
                     <InfoIcon style={{ fontSize: 50 }} ></InfoIcon>
                   </div>
+                  <div className="cardRow center">
+                    <Progress progress={75} />
+
+                  </div>
+
                 </div>
               </Typography>
 
@@ -77,6 +84,8 @@ class Home extends Component {
             </CardContent>
 
           </Card>
+
+
           <Card id="card3" className="column error">
             <CardContent>
               <Typography style={{ fontSize: JSON.stringify(styles.title.fontSize) + 'px' }} color="primary" gutterBottom>
@@ -96,8 +105,16 @@ class Home extends Component {
           </Card>
 
         </div>
-        <div className="row center">
-          <Progress progress={75} />
+        <div className="row center debugBorderGreen">
+          <Card className="column full">
+            <CardContent>
+              <Typography>
+              <Progress progress={33} />
+              <CircularProgressbar value={33} text={`33%`} />
+              </Typography>
+            </CardContent>
+          </Card>
+          
 
         </div>
 
