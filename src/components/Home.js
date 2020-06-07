@@ -6,38 +6,53 @@ import InfoIcon from '@material-ui/icons/Info';
 import Progress from 'react-circle-progress-bar'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+const { Map } = require('immutable');
 class Home extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {weather:[],position:[]};
+    this.state = { weather: [], position: [] };
+    this.blabla = 'blabla';
+    this.map1 = Map({ a: 1, b: 2, c: 3 });
+    this.map2 = this.map1.set('b', 50);
+
+    console.log('immutable object ');
+    console.log(this.map1);
+    console.log(this.map2);
+    console.log(this.map1.toJS());
+    console.log(this.map2.toJS());
   }
-  
-  componentDidMount(){
+
+  componentDidMount() {
     console.log("Weather Data Retrieval...");
     let lat = null;
     let lon = null;
     navigator.geolocation.getCurrentPosition(
 
-      position =>{console.log('position')
-       lat= position.coords.latitude;
-       lon= position.coords.longitude;
+      position => {
+        console.log('position')
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
         //meteo actuelle weather?
-        let weatherCurrent = 'https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&units=metric&appid=526309393592f5cf6ed361609dfd8e78';
+        let weatherCurrent = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=metric&appid=526309393592f5cf6ed361609dfd8e78';
         // forecast pour les prevision par default retourne une liste de 7
         //let weatherForecast = 'https://api.openweathermap.org/data/2.5/forecast/daily?lat='+lat+'&lon='+lon+'&units=metric&appid=526309393592f5cf6ed361609dfd8e78';
         //'https://api.openweathermap.org/data/2.5/forecast/daily?q=Neuchatel&units=metric&appid=526309393592f5cf6ed361609dfd8e78')
-            fetch(weatherCurrent)
-                .then(res => res.json())
-                .then((data) => {
-                  console.log(data);
-                  this.setState({ weather: data,
-                  position:position
-                  });
-                })
-                .catch(console.log('error'))
+        fetch(weatherCurrent)
+          .then(res => res.json())
+          .then((data) => {
+            console.log('----weather data object in promise-------');
+            console.log(JSON.parse(JSON.stringify(data)));
+            console.log(JSON.stringify(data.weather[0].description));
+            this.setState({
+              weather: data,
+              temp: data.main.temp,
+              position: position
+            });
+          })
+          .catch(console.log('error'))
 
-      }, 
+      },
       err => console.log(err)
     );
 
@@ -45,8 +60,6 @@ class Home extends Component {
   render() {
     console.log('render')
 
-console.log('----blabla-------');
-console.log(this.state.weather.weather);
     const styles = {
       root: {
         minWidth: 275,
@@ -65,13 +78,18 @@ console.log(this.state.weather.weather);
     };
 
     console.log(JSON.stringify(styles.title.fontSize));
+    console.log('weather json object');
+    console.log(this.state);
+    console.log(JSON.stringify(this.state.weather.main));
+    //if(this.state.weather.main){
+
+      this.state.weather.main=== undefined?console.log('loading...'):console.log(this.state.weather.main.temp);
     
-    console.log(this.state.weather)
+    
+   
     return (
       <div className="content">
         <h2>Home</h2>
-
-
         <div className="row space-between debugBorderFushia">
           <Card id="card" className="column info">
             <CardContent>
@@ -144,13 +162,20 @@ console.log(this.state.weather.weather);
         <div className="row center debugBorderGreen">
           <Card className="column full">
             <CardContent>
-              <Typography>
-              <Progress progress={33} />
-              <CircularProgressbar value={33} text={`33%`} />
+              <Typography component={'span'}>
+                <Progress progress={33} />
+                <CircularProgressbar value={33} text={`33%`} />
               </Typography>
             </CardContent>
           </Card>
-          
+          <Card className="column full">
+            <CardContent>
+              <Typography component={'span'}>
+                <Progress progress={33} />
+                Temperature { this.state.weather.main=== undefined? '?':this.state.weather.main.temp}
+              </Typography>
+            </CardContent>
+          </Card>
 
         </div>
 
