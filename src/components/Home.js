@@ -4,8 +4,9 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import InfoIcon from '@material-ui/icons/Info';
 import Progress from 'react-circle-progress-bar'
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { CircularProgressbar,  buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { red } from '@material-ui/core/colors';
 const { Map } = require('immutable');
 class Home extends Component {
 
@@ -172,7 +173,14 @@ class Home extends Component {
           <Card className="column ">
             <CardContent>
               <Typography component={'span'}>
-                Humidité { this.state.weather.main=== undefined ? <div>chargement</div> : <CircularProgressbar value={this.state.weather.main.humidity} text={this.state.weather.main.humidity +'%'} />}
+                Humidité { this.state.weather.main=== undefined ? <div>chargement</div> : 
+                <CircularProgressbar value={this.state.weather.main.humidity} text={this.state.weather.main.humidity +'%'} 
+                styles={buildStyles({
+                  textColor: "red",
+                  pathColor: "turquoise",
+                  trailColor: 'gold'
+                })}
+                />}
               </Typography>
             </CardContent>
           </Card>
