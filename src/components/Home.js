@@ -31,6 +31,7 @@ class Home extends Component {
 
       position => {
         console.log('position')
+        console.log(position)
         lat = position.coords.latitude;
         lon = position.coords.longitude;
         //meteo actuelle weather?
@@ -160,22 +161,29 @@ class Home extends Component {
 
         </div>
         <div className="row center debugBorderGreen">
-          <Card className="column full">
+          <Card className="column ">
             <CardContent>
               <Typography component={'span'}>
                 <Progress progress={33} />
-                <CircularProgressbar value={33} text={`33%`} />
               </Typography>
             </CardContent>
           </Card>
-          <Card className="column full">
+
+          <Card className="column ">
             <CardContent>
               <Typography component={'span'}>
-                <Progress progress={33} />
-                Temperature { this.state.weather.main=== undefined? '?':this.state.weather.main.temp}
+                Humidité { this.state.weather.main=== undefined ? <div>chargement</div> : <CircularProgressbar value={this.state.weather.main.humidity} text={this.state.weather.main.humidity +'%'} />}
               </Typography>
             </CardContent>
           </Card>
+          <Card className="column ">
+            <CardContent>
+              <Typography component={'span'}>               
+                Temperature { this.state.weather.main=== undefined? <div>chargement</div>:    <CircularProgressbar value={this.state.weather.main.temp}  text={this.state.weather.main.temp +'°'} />}
+              </Typography>
+            </CardContent>
+          </Card>
+
 
         </div>
 
