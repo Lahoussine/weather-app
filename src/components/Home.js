@@ -7,6 +7,7 @@ import Progress from 'react-circle-progress-bar'
 import { CircularProgressbar,  buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { red } from '@material-ui/core/colors';
+import LineExample from './LineExample';
 const { Map } = require('immutable');
 class Home extends Component {
 
@@ -162,14 +163,13 @@ class Home extends Component {
 
         </div>
         <div className="row center debugBorderGreen">
-          <Card className="column ">
+          <Card className="column-full ">
             <CardContent>
               <Typography component={'span'}>
-                <Progress progress={33} />
+              <LineExample></LineExample>
               </Typography>
             </CardContent>
           </Card>
-
           <Card className="column ">
             <CardContent>
               <Typography component={'span'}>
@@ -191,8 +191,26 @@ class Home extends Component {
               </Typography>
             </CardContent>
           </Card>
-
-
+          <Card className="column ">
+            <CardContent>
+              <Typography component={'span'}>
+                <Progress progress={33} />
+              </Typography>
+            </CardContent>
+          </Card>
+          <Card className="column ">
+            <CardContent>
+              <Typography component={'span'}>
+                <Progress progress={33} />
+              </Typography>
+            </CardContent>
+          </Card>          <Card className="column ">
+            <CardContent>
+              <Typography component={'span'}>
+                <Progress progress={33} />
+              </Typography>
+            </CardContent>
+          </Card>
         </div>
 
       </div>

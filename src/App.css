@@ -81,6 +81,13 @@ background-color: pink !important;/* pour eviter que la propriété soit ecrasé
  .dark{
   background-color: #282c34 !important
  }
+ .column-full{
+  
+  display: flex;
+   flex-direction: column;
+   background-color: initial;
+   width: 100%;
+ }
 .column{
   
   display: flex;
