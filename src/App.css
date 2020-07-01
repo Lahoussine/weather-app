@@ -38,6 +38,20 @@
   flex-direction: row;
   color: rgb(14, 155, 236);
 }
+.menu{
+  background-color: #282c34 !important;
+  display: flex;
+  min-width: 100vw;
+  flex-direction: row;
+  align-items: center;
+  
+  font-size: calc(10px + 2vmin);
+  color: rgb(14, 155, 236);
+    
+  }
+.menu-item{
+ color:inherit !important;
+}
 
 .content{
 background-color: #282c34;

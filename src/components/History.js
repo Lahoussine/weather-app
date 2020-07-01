@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Settings extends Component {
+class History extends Component {
   render() {
     return (
         <div  className="content">
-          <h2>Settings</h2>
+          <h2>History</h2>
         </div>
     );
   }
 }
 
-export default Settings;
+export default History;

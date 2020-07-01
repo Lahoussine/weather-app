@@ -6,7 +6,6 @@ import InfoIcon from '@material-ui/icons/Info';
 import Progress from 'react-circle-progress-bar'
 import { CircularProgressbar,  buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { red } from '@material-ui/core/colors';
 import LineExample from './LineExample';
 const { Map } = require('immutable');
 class Home extends Component {

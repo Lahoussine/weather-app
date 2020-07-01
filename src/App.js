@@ -4,7 +4,7 @@ import './App.css';
 import Layout from './Layout'
 import Home from './components/Home';
 import Weather from './components/Weather';
-import Settings from './components/Settings';
+import History from './components/History';
 import About from './components/About';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -21,7 +21,7 @@ function App() {
           <Switch>
             <Route path="/weather-app" component={Home} exact />
             <Route path="/weather-app/weather" component={Weather} />
-            <Route path="/weather-app/settings" component={Settings} />
+            <Route path="/weather-app/history" component={History} />
             <Route path="/weather-app/about" component={About} />
           </Switch>
 
