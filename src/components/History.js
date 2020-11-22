@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import {Line} from 'react-chartjs-2';
+//import {Line} from 'react-chartjs-2';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -13,6 +13,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from "@material-ui/core/styles";
+
+import {  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,} from 'recharts';
 
 function formatDate(date){
   var dt = new Date(date)
@@ -46,6 +48,32 @@ function last7Days(){
     formatDate(new Date().getDate())
   ]
 }
+
+const dataRechart = [
+  {
+    name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
+  },
+  {
+    name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
+  },
+  {
+    name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
+  },
+  {
+    name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
+  },
+  {
+    name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
+  },
+  {
+    name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
+  },
+  {
+    name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
+  },
+];
+
+
 const data = {
   labels:  ['J-12','J-11','J-10','J-9','J-8','J-7','J-6','J-5','J-4','J-','J-','J-','Today','J+1','J+2','J+3'] ,
   datasets: [
@@ -108,18 +136,33 @@ class History extends Component {
     return (
       <div className="content">
         <h2>History</h2>
-        <div className="row space-between debugBorderFushia">
-          <Card id="card1" className="column info">
+        <div className="history-row space-between">
+          <Card id="card1" className="column card-dark">
             <CardContent>
-            <Line data={data} />
+       
             </CardContent>
           </Card>
-          <Card id="card2" className="column warn">
+          <Card id="card2" className="column card-dark">
             <CardContent>
-              ...in progress
+            <LineChart
+        width={500}
+        height={300}
+        data={dataRechart}
+        margin={{
+          top: 5, right: 30, left: 20, bottom: 5,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+      </LineChart>
             </CardContent>
           </Card>
-          <Card id="card3" className="column error">
+          <Card id="card3" className="column card-dark">
             <CardContent>
               in progress
             </CardContent>

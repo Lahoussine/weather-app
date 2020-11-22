@@ -94,11 +94,15 @@ color: rgb(14, 155, 236);
   background-color: skyblue !important;
 }
 .warn{
-background-color: rgba(245, 141, 4, 0.993) !important;
-//background-color:rgb(254, 235, 200)!important;
+/*background-color: rgba(245, 141, 4, 0.993) !important;*/
+background-color: #ee9510 !important;
+/*/background-color:rgb(254, 235, 200)!important;*/
 }
  .error{
 background-color: pink !important;/* pour eviter que la propriété soit ecrasé par la valeur par default du component card material-ui*/
+ }
+ .card-dark{
+  background-color: #393c41 !important;
  }
  .dark{
   background-color: #282c34 !important
@@ -117,7 +121,14 @@ background-color: pink !important;/* pour eviter que la propriété soit ecrasé
    background-color: initial;
    width: 33%;
    max-height: inherit;
+
+   box-shadow: 0 4px 8px 0  rgba(14, 154, 236, 0.267);
+   transition: 0.3s;
  }
+
+ .column:hover {
+  box-shadow: 0 8px 16px 0  rgba(14, 154, 236, 0.863);
+}
 
  .full{
   width: 50%;
@@ -152,7 +163,9 @@ background-color: pink !important;/* pour eviter que la propriété soit ecrasé
   flex-wrap: wrap;
 justify-content: space-between;
 
+
 }
+
 
 .debugBorder{
   border-style: solid;

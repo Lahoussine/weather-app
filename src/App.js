@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './History.css';
 import Layout from './Layout'
 import Home from './components/Home';
 import Weather from './components/Weather';
