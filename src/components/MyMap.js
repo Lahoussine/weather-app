@@ -66,7 +66,7 @@ return (
 */
 const [map, setMap] = useState(null);
 const styles = {
-  width: "100vw",
+  width: "80vw",
   height: "calc(100vh - 80px)",
   position: "absolute"
 };

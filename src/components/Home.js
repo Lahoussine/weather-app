@@ -9,6 +9,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import LineExample from './LineExample';
 import MyMap from './MyMap';
 const { Map } = require('immutable');
+const OPEN_WEATHER_API_TOKEN = process.env.REACT_APP_OPEN_WEATHER_TOKEN;
 class Home extends Component {
 
   constructor(props) {
@@ -23,6 +24,7 @@ class Home extends Component {
     console.log(this.map2);
     console.log(this.map1.toJS());
     console.log(this.map2.toJS());
+   
   }
 
   componentDidMount() {
@@ -37,7 +39,7 @@ class Home extends Component {
         lat = position.coords.latitude;
         lon = position.coords.longitude;
         //meteo actuelle weather?
-        let weatherCurrent = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=metric&appid=526309393592f5cf6ed361609dfd8e78';
+        let weatherCurrent = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=metric&appid='+OPEN_WEATHER_API_TOKEN;
         // forecast pour les prevision par default retourne une liste de 7
         //let weatherForecast = 'https://api.openweathermap.org/data/2.5/forecast/daily?lat='+lat+'&lon='+lon+'&units=metric&appid=526309393592f5cf6ed361609dfd8e78';
         //'https://api.openweathermap.org/data/2.5/forecast/daily?q=Neuchatel&units=metric&appid=526309393592f5cf6ed361609dfd8e78')
