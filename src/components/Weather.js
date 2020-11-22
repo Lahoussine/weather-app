@@ -7,7 +7,9 @@ import Progress from 'react-circle-progress-bar'
 import { CircularProgressbar,  buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import LineExample from './LineExample';
+import ReactMapGL from 'react-map-gl';
 const { Map } = require('immutable');
+
 class Weather extends Component {
 
   constructor(props) {
@@ -59,6 +61,7 @@ class Weather extends Component {
     );
 
   }
+
   render() {
     console.log('render')
 
@@ -86,9 +89,7 @@ class Weather extends Component {
     //if(this.state.weather.main){
 
       this.state.weather.main=== undefined?console.log('loading...'):console.log(this.state.weather.main.temp);
-    
-    
-   
+  
     return (
       <div className="content">
         <h2>Weather</h2>
@@ -127,16 +128,16 @@ class Weather extends Component {
             <CardContent>
               <Typography style={{ fontSize: JSON.stringify(styles.title.fontSize) + 'px' }} color="primary" gutterBottom>
                 Word of the Day Primary 2
-        </Typography>
-              <Typography className={JSON.stringify(styles.pos)} color="secondary" gutterBottom>
-                Word of the Day Secondary 2
-        </Typography>
-              <Typography style={{ fontSize: JSON.stringify(styles.title.fontSize) + 'px' }} color="textPrimary" gutterBottom>
-                Word of the Day textPrimary 2
-        </Typography>
-              <Typography className={JSON.stringify(styles.pos)} color="textSecondary" gutterBottom>
-                Word of the Day textSecondary 2
-        </Typography>
+          </Typography>
+                <Typography className={JSON.stringify(styles.pos)} color="secondary" gutterBottom>
+                  Word of the Day Secondary 2
+          </Typography>
+                <Typography style={{ fontSize: JSON.stringify(styles.title.fontSize) + 'px' }} color="textPrimary" gutterBottom>
+                  Word of the Day textPrimary 2
+          </Typography>
+                <Typography className={JSON.stringify(styles.pos)} color="textSecondary" gutterBottom>
+                  Word of the Day textSecondary 2
+          </Typography>
             </CardContent>
 
           </Card>
@@ -146,71 +147,22 @@ class Weather extends Component {
             <CardContent>
               <Typography style={{ fontSize: JSON.stringify(styles.title.fontSize) + 'px' }} color="primary" gutterBottom>
                 Word of the Day Primary 3
-        </Typography>
-              <Typography className={JSON.stringify(styles.pos)} color="secondary" gutterBottom>
-                Word of the Day Secondary 3
-        </Typography>
-              <Typography style={{ fontSize: JSON.stringify(styles.title.fontSize) + 'px' }} color="textPrimary" gutterBottom>
-                Word of the Day textPrimary 3
-        </Typography>
-              <Typography className={JSON.stringify(styles.pos)} color="textSecondary" gutterBottom>
-                Word of the Day textSecondary 3
-        </Typography>
+              </Typography>
+                    <Typography className={JSON.stringify(styles.pos)} color="secondary" gutterBottom>
+                      Word of the Day Secondary 3
+              </Typography>
+                    <Typography style={{ fontSize: JSON.stringify(styles.title.fontSize) + 'px' }} color="textPrimary" gutterBottom>
+                      Word of the Day textPrimary 3
+              </Typography>
+                    <Typography className={JSON.stringify(styles.pos)} color="textSecondary" gutterBottom>
+                      Word of the Day textSecondary 3
+              </Typography>
             </CardContent>
 
           </Card>
 
         </div>
-        <div className="row center debugBorderGreen">
-          <Card className="column-full ">
-            <CardContent>
-              <Typography component={'span'}>
-              <LineExample></LineExample>
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card className="column ">
-            <CardContent>
-              <Typography component={'span'}>
-                Humidité { this.state.weather.main=== undefined ? <div>chargement</div> : 
-                <CircularProgressbar value={this.state.weather.main.humidity} text={this.state.weather.main.humidity +'%'} 
-                styles={buildStyles({
-                  textColor: "red",
-                  pathColor: "turquoise",
-                  trailColor: 'gold'
-                })}
-                />}
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card className="column ">
-            <CardContent>
-              <Typography component={'span'}>               
-                Temperature { this.state.weather.main=== undefined? <div>chargement</div>:    <CircularProgressbar value={this.state.weather.main.temp}  text={this.state.weather.main.temp +'°'} />}
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card className="column ">
-            <CardContent>
-              <Typography component={'span'}>
-                <Progress progress={33} />
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card className="column ">
-            <CardContent>
-              <Typography component={'span'}>
-                <Progress progress={33} />
-              </Typography>
-            </CardContent>
-          </Card>          <Card className="column ">
-            <CardContent>
-              <Typography component={'span'}>
-                <Progress progress={33} />
-              </Typography>
-            </CardContent>
-          </Card>
-        </div>
+
 
       </div>
     );

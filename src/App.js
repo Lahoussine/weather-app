@@ -6,7 +6,10 @@ import Home from './components/Home';
 import Weather from './components/Weather';
 import History from './components/History';
 import About from './components/About';
+import MyMap from './components/MyMap';
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 
 function App() {
   return (
@@ -21,6 +24,7 @@ function App() {
           <Switch>
             <Route path="/weather-app" component={Home} exact />
             <Route path="/weather-app/weather" component={Weather} />
+            <Route path="/weather-app/map" component={MyMap} />
             <Route path="/weather-app/history" component={History} />
             <Route path="/weather-app/about" component={About} />
           </Switch>
