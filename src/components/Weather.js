@@ -8,6 +8,7 @@ import { CircularProgressbar,  buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import LineExample from './LineExample';
 import ReactMapGL from 'react-map-gl';
+import MyMap from './MyMap';
 const { Map } = require('immutable');
 
 class Weather extends Component {
@@ -161,6 +162,9 @@ class Weather extends Component {
 
           </Card>
 
+        </div>
+        <div className="row space-between center debugBorderGreen">
+          <MyMap></MyMap>
         </div>
 
 
