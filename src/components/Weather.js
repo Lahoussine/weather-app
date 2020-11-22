@@ -112,11 +112,6 @@ class Weather extends Component {
                   <div className="cardRow icon">
                     <InfoIcon style={{ fontSize: 50 }} ></InfoIcon>
                   </div>
-                  <div className="cardRow center">
-                    <Progress progress={75} />
-
-                  </div>
-
                 </div>
               </Typography>
 
@@ -163,7 +158,8 @@ class Weather extends Component {
           </Card>
 
         </div>
-        <div className="row space-between center debugBorderGreen">
+   
+        <div className="row space-between center map debugBorderGreen">
           <MyMap></MyMap>
         </div>
 

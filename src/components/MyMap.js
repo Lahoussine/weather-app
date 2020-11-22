@@ -66,8 +66,8 @@ return (
 */
 const [map, setMap] = useState(null);
 const styles = {
-  width: "80vw",
-  height: "calc(60vh - 80px)",
+  width: "100vw",
+  height: "calc(100vh - 80px)",
   position: "absolute"
 };
 const mapContainer = useRef(null);
@@ -150,7 +150,7 @@ antialias: true
       if (!map) initializeMap({ setMap, mapContainer });
     }, [map]);
   
-    return     <div className="row center  debugBorderGreen " ref={el => (mapContainer.current = el)} style={styles} />    ;
+    return     <div ref={el => (mapContainer.current = el)} style={styles} />    ;
   
 }
 

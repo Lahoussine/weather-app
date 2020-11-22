@@ -66,6 +66,9 @@ color: rgb(14, 155, 236);
 
 }
 
+.content>h2{
+  max-height: 1vh;
+}
 .row{
   
  display: flex;
@@ -73,7 +76,11 @@ color: rgb(14, 155, 236);
   flex-grow: 1; 
   flex-wrap: wrap;
   min-width: 95vw;
-
+  max-height: 30vh;;
+}
+.map{
+  max-width: 75vw;
+  max-height: 50vh;
 }
 .space-between{
   justify-content: space-between;
@@ -108,7 +115,9 @@ background-color: pink !important;/* pour eviter que la propriété soit ecrasé
    flex-direction: column;
    background-color: initial;
    width: 33%;
+   max-height: inherit;
  }
+
  .full{
   width: 50%;
   height: 70vw;
