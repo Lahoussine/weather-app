@@ -7,6 +7,7 @@ import Progress from 'react-circle-progress-bar'
 import { CircularProgressbar,  buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import LineExample from './LineExample';
+import MyMap from './MyMap';
 const { Map } = require('immutable');
 class Home extends Component {
 
@@ -161,55 +162,8 @@ class Home extends Component {
           </Card>
 
         </div>
-        <div className="row center debugBorderGreen">
-          <Card className="column-full ">
-            <CardContent>
-              <Typography component={'span'}>
-              <LineExample></LineExample>
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card className="column ">
-            <CardContent>
-              <Typography component={'span'}>
-                Humidité { this.state.weather.main=== undefined ? <div>chargement</div> : 
-                <CircularProgressbar value={this.state.weather.main.humidity} text={this.state.weather.main.humidity +'%'} 
-                styles={buildStyles({
-                  textColor: "red",
-                  pathColor: "turquoise",
-                  trailColor: 'gold'
-                })}
-                />}
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card className="column ">
-            <CardContent>
-              <Typography component={'span'}>               
-                Temperature { this.state.weather.main=== undefined? <div>chargement</div>:    <CircularProgressbar value={this.state.weather.main.temp}  text={this.state.weather.main.temp +'°'} />}
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card className="column ">
-            <CardContent>
-              <Typography component={'span'}>
-                <Progress progress={33} />
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card className="column ">
-            <CardContent>
-              <Typography component={'span'}>
-                <Progress progress={33} />
-              </Typography>
-            </CardContent>
-          </Card>          <Card className="column ">
-            <CardContent>
-              <Typography component={'span'}>
-                <Progress progress={33} />
-              </Typography>
-            </CardContent>
-          </Card>
+        <div className="row space-between center map debugBorderGreen">
+          <MyMap></MyMap>
         </div>
 
       </div>
