@@ -14,7 +14,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from "@material-ui/core/styles";
 
-import {  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,} from 'recharts';
+import { AreaChart,Area, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,ResponsiveContainer} from 'recharts';
 
 function formatDate(date){
   var dt = new Date(date)
@@ -137,53 +137,52 @@ class History extends Component {
       <div className="content">
         <h2>History</h2>
         <div className="history-row space-between">
-          <Card id="card1" className="column card-dark">
-            <CardContent>
-            <LineChart
-            width={500}
-            height={300}
-            data={dataRechart}
-            margin={{
-              top: 0, right: -20, left: 0, bottom: 15,
-            }
-          }
-          >        
-           <XAxis dataKey="name" tick={{fontSize: 10}}/>
-            <Line type="monotone" dataKey="pv" stroke="#8884d8" dot={false} />
-          </LineChart>
-            </CardContent>
-          </Card>
-          <Card id="card2" className="column card-dark">
-            <CardContent>
-            <LineChart
-            
-        width={500}
-        height={300}
-        data={dataRechart}
-        margin={{
-          top: 50, right: -100, left: 0, bottom: 15,
-        }}
-      >
-        <XAxis dataKey="name" tick={{fontSize: 10}}/>
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d" dot={false} />
-      </LineChart>
-            </CardContent>
-          </Card>
-          <Card id="card3" className="column card-dark">
-            <CardContent>
-            <LineChart
-            width={500}
-            height={300}
-            data={dataRechart}
-            margin={{
-              top: 0, right: 0, left: 0, bottom: 50,
-            }}
-          >     
-            <XAxis dataKey="name" tick={{fontSize: 10}}/>   
-            <Line type="monotone" dataKey="amt" stroke="#8884d8" dot={false} />
-          </LineChart>
-            </CardContent>
-          </Card>
+        <div className="column card-dark">
+              <AreaChart    
+              width={500}
+              height={300}
+              data={dataRechart} margin={{   top: 0, right: -20, left: 0, bottom: 15, }}>
+                  <defs>
+                    <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
+                            <stop offset="95%" stopColor="#82ca9d" stopOpacity={0}/>
+                        </linearGradient>
+                  </defs>
+                  <XAxis dataKey="name" tick={{fontSize: 10}} />
+                  <Area type="monotone" dataKey="uv" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+              </AreaChart>
+           </div>
+            <div className="column card-dark">
+                  <AreaChart    
+                  width={500}
+                  height={300}
+                  data={dataRechart} margin={{   top: 0, right: -20, left: 0, bottom: 15, }}>
+                      <defs>
+                        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
+                            <stop offset="95%" stopColor="#8884d8" stopOpacity={0}/>
+                        </linearGradient>
+
+                      </defs>
+                      <XAxis dataKey="name" tick={{fontSize: 10}} />
+                      <Area type="monotone" dataKey="pv" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+                  </AreaChart>
+            </div>
+            <div className="column card-dark">
+                  <AreaChart    
+                  width={500}
+                  height={300}
+                  data={dataRechart} margin={{   top: 0, right: -20, left: 0, bottom: 15, }}>
+                      <defs>
+                      <linearGradient id="colorAmt" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="#6d071a" stopOpacity={0.8}/>
+                            <stop offset="95%" stopColor="#38030d" stopOpacity={0}/>
+                        </linearGradient>
+                      </defs>
+                      <XAxis dataKey="name" tick={{fontSize: 10}} />
+                      <Area type="monotone" dataKey="amt" stroke="#38030d" fillOpacity={1} fill="url(#colorAmt)" />
+                  </AreaChart>
+            </div>
         </div>
 
         <div className="row space-between debugBorder">
