@@ -138,9 +138,9 @@ class History extends Component {
         <h2>History</h2>
         <div className="history-row space-between">
         <div className="column card-dark">
+  
               <AreaChart    
-              width={500}
-              height={300}
+width={500} height={300}
               data={dataRechart} margin={{   top: 0, right: -20, left: 0, bottom: 15, }}>
                   <defs>
                     <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
@@ -153,10 +153,8 @@ class History extends Component {
               </AreaChart>
            </div>
             <div className="column card-dark">
-                  <AreaChart    
-                  width={500}
-                  height={300}
-                  data={dataRechart} margin={{   top: 0, right: -20, left: 0, bottom: 15, }}>
+            <ResponsiveContainer width="80%" height="80%"> 
+                  <AreaChart  data={dataRechart} margin={{   top: 0, right: -20, left: 0, bottom: 15, }}>
                       <defs>
                         <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                             <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
@@ -167,21 +165,23 @@ class History extends Component {
                       <XAxis dataKey="name" tick={{fontSize: 10}} />
                       <Area type="monotone" dataKey="pv" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
                   </AreaChart>
+                  </ResponsiveContainer>
             </div>
             <div className="column card-dark">
-                  <AreaChart    
-                  width={500}
-                  height={300}
+            <ResponsiveContainer width="80%" height="80%"> 
+                  <AreaChart   
+       
                   data={dataRechart} margin={{   top: 0, right: -20, left: 0, bottom: 15, }}>
                       <defs>
                       <linearGradient id="colorAmt" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#6d071a" stopOpacity={0.8}/>
-                            <stop offset="95%" stopColor="#38030d" stopOpacity={0}/>
+                            <stop offset="5%" stopColor="#923CB5" stopOpacity={0.8}/>
+                            <stop offset="95%" stopColor="#000000" stopOpacity={0}/>
                         </linearGradient>
                       </defs>
                       <XAxis dataKey="name" tick={{fontSize: 10}} />
-                      <Area type="monotone" dataKey="amt" stroke="#38030d" fillOpacity={1} fill="url(#colorAmt)" />
+                      <Area type="monotone" dataKey="amt" stroke="#923CB5" fillOpacity={1} fill="url(#colorAmt)" />
                   </AreaChart>
+                  </ResponsiveContainer>
             </div>
         </div>
 
