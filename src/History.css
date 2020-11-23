@@ -6,7 +6,9 @@
      flex-grow: 1; 
      flex-wrap: wrap;
      min-width: 95vw;
-     max-height: 100vh;;
+     max-height: 100vh;
+     height: 33vh;
+
 }
 
  

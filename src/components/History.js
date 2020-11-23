@@ -138,9 +138,8 @@ class History extends Component {
         <h2>History</h2>
         <div className="history-row space-between">
         <div className="column card-dark">
-  
-              <AreaChart    
-width={500} height={300}
+        <ResponsiveContainer width="80%" height="80%"> 
+              <AreaChart  
               data={dataRechart} margin={{   top: 0, right: -20, left: 0, bottom: 15, }}>
                   <defs>
                     <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
@@ -151,6 +150,7 @@ width={500} height={300}
                   <XAxis dataKey="name" tick={{fontSize: 10}} />
                   <Area type="monotone" dataKey="uv" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
               </AreaChart>
+              </ResponsiveContainer>
            </div>
             <div className="column card-dark">
             <ResponsiveContainer width="80%" height="80%"> 
