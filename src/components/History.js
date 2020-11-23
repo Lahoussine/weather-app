@@ -139,7 +139,18 @@ class History extends Component {
         <div className="history-row space-between">
           <Card id="card1" className="column card-dark">
             <CardContent>
-       
+            <LineChart
+            width={500}
+            height={300}
+            data={dataRechart}
+            margin={{
+              top: 0, right: -20, left: 0, bottom: 15,
+            }
+          }
+          >        
+           <XAxis dataKey="name" tick={{fontSize: 10}}/>
+            <Line type="monotone" dataKey="pv" stroke="#8884d8" dot={false} />
+          </LineChart>
             </CardContent>
           </Card>
           <Card id="card2" className="column card-dark">
@@ -150,22 +161,27 @@ class History extends Component {
         height={300}
         data={dataRechart}
         margin={{
-          top: 50, right: 100, left: 0, bottom: -5,
+          top: 50, right: -100, left: 0, bottom: 15,
         }}
       >
-        <CartesianGrid strokeDasharray="3 3"/>
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+        <XAxis dataKey="name" tick={{fontSize: 10}}/>
+        <Line type="monotone" dataKey="uv" stroke="#82ca9d" dot={false} />
       </LineChart>
             </CardContent>
           </Card>
           <Card id="card3" className="column card-dark">
             <CardContent>
-              in progress
+            <LineChart
+            width={500}
+            height={300}
+            data={dataRechart}
+            margin={{
+              top: 0, right: 0, left: 0, bottom: 50,
+            }}
+          >     
+            <XAxis dataKey="name" tick={{fontSize: 10}}/>   
+            <Line type="monotone" dataKey="amt" stroke="#8884d8" dot={false} />
+          </LineChart>
             </CardContent>
           </Card>
         </div>
