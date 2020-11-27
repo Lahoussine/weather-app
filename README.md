@@ -66,3 +66,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+### Inpiration site
+https://demos.creative-tim.com/black-dashboard-react/?&_ga=2.118904649.115076547.1606498666-1956852672.1606498666#/admin/dashboard
