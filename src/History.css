@@ -8,7 +8,28 @@
      min-width: 95vw;
      max-height: 100vh;
      height: 33vh;
-
+     color: #fff;
 }
 
+.chart-title{
+    width: fit-content;
+    position: relative;
+    font-weight: 100;
+    font-size: x-small;
+    color: #9A9A9A;
+}
+.chart-value{
+    width: fit-content;
+    position: relative;
+    font-weight: 100;
+}
+
+
+.recharts-responsive-container{
+    position: relative;
+    top: 10%;
+    left: 8%;
+    height: 80% !important;
+    width: 80% !important;
+}
  

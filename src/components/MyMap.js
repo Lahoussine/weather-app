@@ -81,8 +81,9 @@ const mapContainer = useRef(null);
           zoom: 5
           */
          container: mapContainer.current,
-style: 'mapbox://styles/mapbox/streets-v11',
-//style: 'mapbox://styles/mapbox/satellite-v9',
+style: 'mapbox://styles/mapbox/dark-v10',
+//style: 'mapbox://styles/mapbox/street-v11',
+//style: 'mapbox://styles/mapbox/satellite-v11',
 center: [6.928166326175642, 46.99061286692401],
 zoom: 15.99,
 pitch: 40,

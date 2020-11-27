@@ -13,7 +13,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from "@material-ui/core/styles";
-
+import '.././History.css';
 import { AreaChart,Area, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,ResponsiveContainer} from 'recharts';
 
 function formatDate(date){
@@ -51,25 +51,25 @@ function last7Days(){
 
 const dataRechart = [
   {
-    name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
+    name: '08:00', uv: 4000, pv: 2400, amt: 2400,
   },
   {
-    name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
+    name: '10:00', uv: 3000, pv: 1398, amt: 2210,
   },
   {
-    name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
+    name: '12:00', uv: 2000, pv: 9800, amt: 2290,
   },
   {
-    name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
+    name: '14:00', uv: 2780, pv: 3908, amt: 2000,
   },
   {
-    name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
+    name: '16:00', uv: 1890, pv: 4800, amt: 2181,
   },
   {
-    name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
+    name: '18:00', uv: 2390, pv: 3800, amt: 2500,
   },
   {
-    name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
+    name: '20:00', uv: 3490, pv: 4300, amt: 2100,
   },
 ];
 
@@ -138,37 +138,46 @@ class History extends Component {
         <h2>History</h2>
         <div className="history-row space-between">
         <div className="column card-dark">
-        <ResponsiveContainer width="80%" height="80%"> 
+            <div className="chart-title">Température</div>  
+            <div className="chart-value">-4°</div>   
+            <ResponsiveContainer> 
               <AreaChart  
-              data={dataRechart} margin={{   top: 0, right: -20, left: 0, bottom: 15, }}>
-                  <defs>
-                    <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
-                            <stop offset="95%" stopColor="#82ca9d" stopOpacity={0}/>
-                        </linearGradient>
-                  </defs>
-                  <XAxis dataKey="name" tick={{fontSize: 10}} />
-                  <Area type="monotone" dataKey="uv" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
-              </AreaChart>
-              </ResponsiveContainer>
+                data={dataRechart} margin={{   top: 0, right: -20, left: 0, bottom: 15, }}>
+                    <defs>
+                      <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
+                              <stop offset="95%" stopColor="#82ca9d" stopOpacity={0}/>
+                          </linearGradient>
+                    </defs>
+                    <XAxis dataKey="name" tick={{fontSize: 10}} />
+                    <Area type="monotone" dataKey="uv" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+                </AreaChart>
+            </ResponsiveContainer>
            </div>
-            <div className="column card-dark">
-            <ResponsiveContainer width="80%" height="80%"> 
-                  <AreaChart  data={dataRechart} margin={{   top: 0, right: -20, left: 0, bottom: 15, }}>
-                      <defs>
-                        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
-                            <stop offset="95%" stopColor="#8884d8" stopOpacity={0}/>
-                        </linearGradient>
+           <div className="column card-dark">
 
-                      </defs>
-                      <XAxis dataKey="name" tick={{fontSize: 10}} />
-                      <Area type="monotone" dataKey="pv" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-                  </AreaChart>
-                  </ResponsiveContainer>
-            </div>
+              <div className="chart-title">Humidité</div>            
+              <div className="chart-value">80%</div>     
+                    <ResponsiveContainer> 
+                          <AreaChart  data={dataRechart} margin={{   top: 0, right: -20, left: 0, bottom: 15, }}>
+                              <defs>
+                                <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
+                                    <stop offset="95%" stopColor="#8884d8" stopOpacity={0}/>
+                                </linearGradient>
+
+                              </defs>
+                              <XAxis dataKey="name" tick={{fontSize: 10}} />
+                              <Area type="monotone" dataKey="pv" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+                          </AreaChart>
+                    </ResponsiveContainer> 
+             
+
+</div>
             <div className="column card-dark">
-            <ResponsiveContainer width="80%" height="80%"> 
+            <div className="chart-title">Pression </div> 
+            <div className="chart-value">1013 hPa</div>   
+            <ResponsiveContainer> 
                   <AreaChart   
        
                   data={dataRechart} margin={{   top: 0, right: -20, left: 0, bottom: 15, }}>
@@ -179,6 +188,7 @@ class History extends Component {
                         </linearGradient>
                       </defs>
                       <XAxis dataKey="name" tick={{fontSize: 10}} />
+                   
                       <Area type="monotone" dataKey="amt" stroke="#923CB5" fillOpacity={1} fill="url(#colorAmt)" />
                   </AreaChart>
                   </ResponsiveContainer>
