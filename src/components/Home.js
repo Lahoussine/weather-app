@@ -17,14 +17,7 @@ class Home extends Component {
     this.state = { weather: [], position: [] };
     this.blabla = 'blabla';
     this.map1 = Map({ a: 1, b: 2, c: 3 });
-    this.map2 = this.map1.set('b', 50);
-
-    console.log('immutable object ');
-    console.log(this.map1);
-    console.log(this.map2);
-    console.log(this.map1.toJS());
-    console.log(this.map2.toJS());
-   
+    this.map2 = this.map1.set('b', 50);   
   }
 
   componentDidMount() {
@@ -32,10 +25,9 @@ class Home extends Component {
     let lat = null;
     let lon = null;
     navigator.geolocation.getCurrentPosition(
-
       position => {
-        console.log('position')
-        console.log(position)
+        //console.log('position')
+        //console.log(position)
         lat = position.coords.latitude;
         lon = position.coords.longitude;
         //meteo actuelle weather?
@@ -47,8 +39,9 @@ class Home extends Component {
           .then(res => res.json())
           .then((data) => {
             console.log('----weather data object in promise-------');
-            console.log(JSON.parse(JSON.stringify(data)));
-            console.log(JSON.stringify(data.weather[0].description));
+            console.log(data);
+            //console.log(JSON.parse(JSON.stringify(data)));
+           // console.log(JSON.stringify(data.weather[0].description));
             this.setState({
               weather: data,
               temp: data.main.temp,
