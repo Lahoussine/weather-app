@@ -7,7 +7,7 @@
      flex-wrap: wrap;
      min-width: 95vw;
      max-height: 100vh;
-     height: 33vh;
+     height: 18vh;
      color: #fff;
 }
 
@@ -33,12 +33,27 @@
     width: 80% !important;
 }
  
+.MuiTableContainer-root{
+  height: inherit ; 
+  background-color: #393c41 !important;
+}
+.MuiTableCell-root{
 
+  /*border-bottom: 1px solid rgba(224, 224, 224, 1);*/
+}
+.MuiTableCell-head{
+  color: rgb(14, 155, 236) !important;
+  font-weight: 700 !important;;
+}
+.MuiTableCell-body{
+color:  #aaaaaa !important;
+}
 
 table,
 th,
 td {
-  border: 1px solid black;
+  border: 1px solid  #9A9A9A ;
+  border: 1px solid  #9A9A9A !important;
 }
 
 table {

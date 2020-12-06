@@ -147,6 +147,7 @@ class History extends Component {
           <Table className={styles.table} size="small" aria-label="a dense table">
             <TableHead>
               <TableRow>
+                <TableCell align="center">Date</TableCell>
                 <TableCell align="center">Température</TableCell>
                 <TableCell align="center">Humidité</TableCell>
                 <TableCell align="center">Pression</TableCell>
@@ -155,6 +156,7 @@ class History extends Component {
             <TableBody>
               {dataWeather?.daily?.map((row) => (
                 <TableRow key={row.temp.day}>
+                  <TableCell align="center">{formatXAxis(row.dt)}</TableCell>
                   <TableCell align="center">{row.temp.day}</TableCell>
                   <TableCell align="center">{row.humidity}</TableCell>
                   <TableCell align="center">{row.pressure}</TableCell>
