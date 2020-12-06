@@ -1,8 +1,7 @@
-import React,{Component, useEffect, useState,useRef } from 'react';
-import ReactMapGL from 'react-map-gl';
+import React,{useEffect, useState,useRef } from 'react';
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+
 function MyMap(props) {
 /*
   const [viewport,setViewport] = useState({

@@ -4,9 +4,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import InfoIcon from '@material-ui/icons/Info';
 import Progress from 'react-circle-progress-bar'
-import { CircularProgressbar,  buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import LineExample from './LineExample';
 import MyMap from './MyMap';
 const { Map } = require('immutable');
 const OPEN_WEATHER_API_TOKEN = process.env.REACT_APP_OPEN_WEATHER_TOKEN;

@@ -120,14 +120,13 @@ background-color: pink !important;/* pour eviter que la propriété soit ecrasé
    flex-direction: column;
    background-color: initial;
    width: 33%;
-   max-height: inherit;
-
-   box-shadow: 0 4px 8px 0  rgba(14, 154, 236, 0.267);
+   height: 100%;
+   max-height: inherit;   
    transition: 0.3s;
  }
 
  .column:hover {
-  box-shadow: 0 8px 16px 0  rgba(14, 154, 236, 0.863);
+  box-shadow: 0 8px 16px 0  rgba(14, 154, 236, 0.163);
 }
 
  .full{

@@ -33,3 +33,24 @@
     width: 80% !important;
 }
  
+
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+table {
+  font-family: sans-serif;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+table th {
+  padding: 8px
+}
+
+table td {
+  padding: 8px
+}
