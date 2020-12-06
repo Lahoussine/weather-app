@@ -142,7 +142,7 @@ class History extends Component {
             </div>
         </div>
 
-        <div className="history-row space-between debugBorder">
+        <div className="history-row space-between">
         <TableContainer component={Paper}>
           <Table className={styles.table} size="small" aria-label="a dense table">
             <TableHead>

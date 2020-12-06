@@ -65,8 +65,8 @@ return (
 */
 const [map, setMap] = useState(null);
 const styles = {
-  width: "80vw",
-  height: "calc(100vh - 80px)",
+  width: "50vw",
+  height: "calc(50vh - 80px)",
   position: "absolute"
 };
 const mapContainer = useRef(null);
@@ -80,8 +80,8 @@ const mapContainer = useRef(null);
           zoom: 5
           */
          container: mapContainer.current,
-style: 'mapbox://styles/mapbox/dark-v10',
-//style: 'mapbox://styles/mapbox/street-v11',
+//style: 'mapbox://styles/mapbox/dark-v10',
+style: 'mapbox://styles/mapbox/streets-v11',
 //style: 'mapbox://styles/mapbox/satellite-v11',
 center: [6.928166326175642, 46.99061286692401],
 zoom: 15.99,
