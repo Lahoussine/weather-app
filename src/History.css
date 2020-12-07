@@ -7,8 +7,13 @@
      flex-wrap: wrap;
      min-width: 95vw;
      max-height: 100vh;
-     height: 18vh;
+     height: 20vh;
      color: #fff;
+     margin-bottom: 2rem;
+}
+
+.fit-content{
+  height: fit-content;
 }
 
 .chart-title{

@@ -8,6 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import '.././History.css';
 import { AreaChart,Area, XAxis, YAxis, Legend,ResponsiveContainer} from 'recharts';
+import CollapsibleTable from './CollapsibleTable';
 
 
 let dataWeather = [];
@@ -165,6 +166,17 @@ class History extends Component {
             </TableBody>
           </Table>
         </TableContainer>
+        </div>
+        <div className="history-row space-between fit-content">
+        <TableContainer component={Paper}>
+      <Table>
+        <TableBody>
+          {dataWeather?.daily?.map(row => (
+            <CollapsibleTable key={row.dt} row={row} />
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
         </div>
       </div>
     );

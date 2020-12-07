@@ -125,7 +125,7 @@ background-color: pink !important;/* pour eviter que la propriété soit ecrasé
    transition: 0.3s;
  }
 
- .column:hover {
+ .card-dark:hover {
   box-shadow: 0 8px 16px 0  rgba(14, 154, 236, 0.163);
 }
 
