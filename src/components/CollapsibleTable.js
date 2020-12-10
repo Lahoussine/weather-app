@@ -28,6 +28,7 @@ function CollapsibleTable(props) {
   
     console.log('Collapsible Table');
     console.log(row);
+    console.log("http://openweathermap.org/img/wn/"+row?.weather?.[0]?.icon+"@2x.png");
     return     (
         <React.Fragment>
         <TableRow>
@@ -36,8 +37,11 @@ function CollapsibleTable(props) {
                     <h1>Overview</h1>
                     <div className="column">Temp Min {row?.temp?.min}</div>
                     <div className="column">Temp Max {row?.temp?.max}</div>
+                    <div className="column">Description {row?.weather?.[0]?.main}</div>
+                    <img src={"http://openweathermap.org/img/wn/"+row?.weather?.[0]?.icon+"@2x.png"} alt="Italian Trulli"></img>
                     <div className="column">Humidity {row?.humidity}</div>
                     <div className="column">Pressure {row?.pressure}</div>
+                    
               </div>           
            </TableCell>
         </TableRow>
