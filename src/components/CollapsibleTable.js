@@ -38,10 +38,11 @@ function CollapsibleTable(props) {
                     <div className="column">Temp Min {row?.temp?.min}</div>
                     <div className="column">Temp Max {row?.temp?.max}</div>
                     <div className="column">Description {row?.weather?.[0]?.main}</div>
-                    <img src={"http://openweathermap.org/img/wn/"+row?.weather?.[0]?.icon+"@2x.png"} alt="Italian Trulli"></img>
+                    <div className="column">
+                        <img src={"http://openweathermap.org/img/wn/"+row?.weather?.[0]?.icon+"@2x.png"} alt="Italian Trulli"></img>
+                    </div>
                     <div className="column">Humidity {row?.humidity}</div>
-                    <div className="column">Pressure {row?.pressure}</div>
-                    
+                    <div className="column">Pressure {row?.pressure}</div>                    
               </div>           
            </TableCell>
         </TableRow>
@@ -50,16 +51,16 @@ function CollapsibleTable(props) {
             <Collapse in={open} timeout="auto" unmountOnExit>
               <Box margin={1}>
                 <Typography variant="h6" gutterBottom component="div">
-                  History
+                  Detail
                 </Typography>
                 <Table size="small">
                   <TableHead>
                     <TableRow>
-                      <TableCell>Date</TableCell>
+                      <TableCell align="center">In progress...</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
-
+                             blabla
                   </TableBody>
                 </Table>
               </Box>
