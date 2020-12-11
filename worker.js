@@ -17,12 +17,7 @@ self.addEventListener('install', event => {
 });
 
 // Cache and return requests
-self.addEventListener('fetch', {
-  method: "GET",
-  headers: {
-    "access-control-allow-origin" : "*",
-    "Content-type": "application/json; charset=UTF-8"
-  }},event => {
+self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(function(response) {
