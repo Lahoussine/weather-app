@@ -39,7 +39,13 @@ function CollapsibleTable(props) {
                     <div className="column">Temp Max {row?.temp?.max}</div>
                     <div className="column">Description {row?.weather?.[0]?.main}</div>
                     <div className="column">
-                        <img src={"http://openweathermap.org/img/wn/"+row?.weather?.[0]?.icon+"@2x.png"} alt="Italian Trulli"></img>
+
+                    <img src={require("../icons/01d.svg")} alt="snowflake"></img>
+                    <img src={require("../icons/02d.svg")} alt="snowflake"></img>
+                    <img src={require("../icons/03d.svg")} alt="snowflake"></img>
+                    <img src={require("../icons/04d.svg")} alt="snowflake"></img>
+                    <img src={require("../icons/10d.svg")} alt="snowflake"></img>
+                    <img src={require("../icons/13d.svg")} alt="snowflake"></img>
                     </div>
                     <div className="column">Humidity {row?.humidity}</div>
                     <div className="column">Pressure {row?.pressure}</div>                    
