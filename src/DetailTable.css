@@ -26,6 +26,7 @@
     font-size: xxx-large;
 }
 
+
 .detail-row2 > p:nth-child(odd) {
     color: #fff;
 }
@@ -56,4 +57,16 @@
 
 .detail-column > img{
     margin-top: 40px;
+}
+
+/* Responsive CSS for mobile*/
+/* On screens that are 500px or less, set the background color to olive */
+@media screen and (max-width: 500px) {
+    .detail-row2 > p{
+        font-size: x-large;
+        margin-right: 7px;
+    }
+    .detail-column > img{
+        margin-top: 10px;
+    }
 }
