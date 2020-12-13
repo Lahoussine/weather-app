@@ -1,20 +1,13 @@
-import React,{useEffect, useState,useRef } from 'react';
-import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
 import Box from "@material-ui/core/Box";
 import Collapse from "@material-ui/core/Collapse";
-import IconButton from "@material-ui/core/IconButton";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Typography from "@material-ui/core/Typography";
-import Paper from "@material-ui/core/Paper";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-
+import DetailTable from "./DetailTable";
 
 function createData(name, age, history) {
   return { name, age, history };
@@ -33,17 +26,7 @@ function CollapsibleTable(props) {
         <React.Fragment>
         <TableRow>
           <TableCell size="medium" component="th" scope="row"   onClick={() => setOpen(!open)}>
-               <div className="history-row space-between">
-                    <h1>Overview</h1>
-                    <div className="column">Temp Min {row?.temp?.min}</div>
-                    <div className="column">Temp Max {row?.temp?.max}</div>
-                    <div className="column">Description {row?.weather?.[0]?.main}</div>
-                    <div className="column">
-                    <img src={require("../icons/"+row?.weather?.[0]?.icon+".svg")} alt="snowflake"></img>
-                    </div>
-                    <div className="column">Humidity {row?.humidity}</div>
-                    <div className="column">Pressure {row?.pressure}</div>                    
-              </div>           
+              <DetailTable key={row.dt} row={row}></DetailTable>          
            </TableCell>
         </TableRow>
         <TableRow>
