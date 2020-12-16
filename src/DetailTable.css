@@ -63,7 +63,7 @@
 /* On screens that are 500px or less, set the background color to olive */
 @media screen and (max-width: 500px) {
     .detail-row2 > p{
-        font-size: x-large;
+        font-size: 15px;
         margin-right: 7px;
     }
     .detail-column > img{
