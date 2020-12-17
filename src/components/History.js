@@ -62,8 +62,8 @@ class History extends Component {
         fetch(weatherCurrent)
           .then(res => res.json())
           .then((data) => {
-            console.log('----weather data object in promise-------');
-            console.log(data);
+
+            
             //dataWeather =getTemperaturesHourly(data);
             dataWeather= data;
             this.setState({
@@ -81,7 +81,7 @@ class History extends Component {
   }
   render() {
     const { classes } = this.props;
-    console.log(classes)
+    
     return (
       <div className="content">
         <h2>History</h2>

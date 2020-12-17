@@ -19,9 +19,6 @@ function CollapsibleTable(props) {
     const { row } = props;
     const [open, setOpen] = React.useState(false);
   
-    console.log('Collapsible Table');
-    console.log(row);
-    console.log("http://openweathermap.org/img/wn/"+row?.weather?.[0]?.icon+"@2x.png");
     return     (
         <React.Fragment>
         <TableRow>
