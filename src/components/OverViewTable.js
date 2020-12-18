@@ -4,11 +4,7 @@ import '.././OverViewTable.css';
 import moment from 'moment';
 function OverViewTable(props) {
     const { row } = props;
-    {
-        console.log(new Date(row?.dt * 1000))
-        console.log(moment(row?.dt * 1000).format('DD/MM'))
 
-    }
     return (
         <React.Fragment>
             <div className="detail-row space-between">
