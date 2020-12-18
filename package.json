@@ -13,6 +13,7 @@
     "chart.js": "^2.9.3",
     "immutable": "^4.0.0-rc.12",
     "mapbox-gl": "^1.13.0",
+    "moment": "^2.29.1",
     "react": "^16.13.0",
     "react-chartjs-2": "^2.9.0",
     "react-circle-progress-bar": "^0.1.3",

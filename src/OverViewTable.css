@@ -27,11 +27,11 @@
 }
 
 
-.detail-row2 > p:nth-child(odd) {
+.detail-row2 > div >div:nth-child(odd) {
     color: #fff;
 }
 
-.detail-row2 > p:nth-child(even) {
+.detail-row2 > div > div:nth-child(even) {
     color: #9A9A9A;
 }
 
