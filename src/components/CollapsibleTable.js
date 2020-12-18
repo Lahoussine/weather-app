@@ -7,7 +7,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Typography from "@material-ui/core/Typography";
-import DetailTable from "./DetailTable";
+import OverViewTable from "./OverViewTable";
 
 function createData(name, age, history) {
   return { name, age, history };
@@ -16,41 +16,49 @@ const rows = [createData("james", 15, [{ date: "2020-01-01" }])];
 
 
 function CollapsibleTable(props) {
-    const { row } = props;
-    const [open, setOpen] = React.useState(false);
-  
-    return     (
-        <React.Fragment>
-        <TableRow>
-          <TableCell size="medium" component="th" scope="row"   onClick={() => setOpen(!open)}>
-              <DetailTable key={row.dt} row={row}></DetailTable>          
-           </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-            <Collapse in={open} timeout="auto" unmountOnExit>
-              <Box margin={1}>
-                <Typography variant="h6" gutterBottom component="div">
-                  Detail
+  const { row } = props;
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <React.Fragment>
+      <TableRow>
+        <TableCell size="medium" component="th" scope="row" onClick={() => setOpen(!open)}>
+          <OverViewTable key={row.dt} row={row}></OverViewTable>
+        </TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <Box margin={1}>
+              <Typography variant="h6" gutterBottom component="div">
+                Detail
                 </Typography>
-                <Table size="small">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell align="center">In progress...</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                             blabla
-                  </TableBody>
-                </Table>
-              </Box>
-            </Collapse>
-          </TableCell>
-        </TableRow>
-      </React.Fragment>
+              <Table size="small">
+                <TableHead>
+                  <TableRow>
+                    <TableCell align="center">In progress...</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <tr>
+                    <th scope="row">Donuts</th>
+                    <td>3,000</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Stationery</th>
+                    <td>18,000</td>
+                  </tr>
+
+                </TableBody>
+              </Table>
+            </Box>
+          </Collapse>
+        </TableCell>
+      </TableRow>
+    </React.Fragment>
 
 
-    )  ;
+  );
 }
 
 export default CollapsibleTable;

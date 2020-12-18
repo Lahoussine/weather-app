@@ -7,7 +7,7 @@ import History from './components/History';
 import About from './components/About';
 import MyMap from './components/MyMap';
 
-import {Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 
 function App() {
@@ -25,13 +25,8 @@ function App() {
             <Route path="/weather-app/history" component={History} />
             <Route path="/weather-app/about" component={About} />
           </Switch>
-
-
-
         </main>
       </div>
-
-
     </div>
   );
 }
