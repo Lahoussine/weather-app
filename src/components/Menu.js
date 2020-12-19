@@ -12,7 +12,7 @@ export default function Menu() {
   const [value, setValue] = React.useState(0);
 
   return (
-    <BottomNavigation className="menu"
+    <BottomNavigation className="menu" style={{width: '100vw' }}
       value={value}
       onChange={(event, newValue) => {
         setValue(newValue);
