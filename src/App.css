@@ -32,12 +32,25 @@
 
 .container{
   background-color: #282c34;
-  min-height: 300vh;
-  min-width: 50vw;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   color: rgb(14, 155, 236);
+
+
+
 }
+
+/* Responsive CSS for mobile*/
+/* On screens that are 500px or less, set the background color to olive */
+@media screen and (max-width: 500px) {
+  .container{
+       /*ONEPLUS MODE*/
+     margin-left: -15px;
+  }
+}
+
+
 .menu{
   background-color: #282c34 !important;
   display: flex;
