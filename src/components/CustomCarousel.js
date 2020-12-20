@@ -1,11 +1,9 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 function CustomCarousel(props) {
-
-
     return (
         <React.Fragment>
-            <Carousel>
+            <Carousel >
                 <Carousel.Item interval={1000}>
                     <div>Température</div>
                     <Carousel.Caption>
@@ -13,14 +11,14 @@ function CustomCarousel(props) {
                         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={500}>
+                <Carousel.Item interval={1000}>
                 <div>Humidité</div>
                     <Carousel.Caption>
                         <h3>Second slide label</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item>
+                <Carousel.Item interval={1000}>
                 <div>Pression Atmosphérique</div>
                     <Carousel.Caption>
                         <h3>Third slide label</h3>
