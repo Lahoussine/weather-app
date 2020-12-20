@@ -41,7 +41,7 @@ function CollapsibleTable(props) {
                 </TableHead>
                 <TableBody>
                   <tr>
-                    <th scope="row">Donuts</th>
+                    <th scope="row">TOTO</th>
                     <td>3,000</td>
                   </tr>
                   <tr>
