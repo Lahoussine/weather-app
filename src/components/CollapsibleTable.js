@@ -8,7 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Typography from "@material-ui/core/Typography";
 import OverViewTable from "./OverViewTable";
-
+import CustomCarousel from './CustomCarousel';
 function createData(name, age, history) {
   return { name, age, history };
 }
@@ -41,14 +41,8 @@ function CollapsibleTable(props) {
                 </TableHead>
                 <TableBody>
                   <tr>
-                    <th scope="row">TOTO</th>
-                    <td>3,000</td>
+                    <td><CustomCarousel></CustomCarousel></td>
                   </tr>
-                  <tr>
-                    <th scope="row">Stationery</th>
-                    <td>18,000</td>
-                  </tr>
-
                 </TableBody>
               </Table>
             </Box>
