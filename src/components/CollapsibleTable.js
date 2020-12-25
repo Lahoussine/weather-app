@@ -9,17 +9,15 @@ import TableRow from "@material-ui/core/TableRow";
 import Typography from "@material-ui/core/Typography";
 import OverViewTable from "./OverViewTable";
 import CustomCarousel from './CustomCarousel';
+
 function createData(name, age, history) {
   return { name, age, history };
 }
-const rows = [createData("james", 15, [{ date: "2020-01-01" }])];
-
-
 function CollapsibleTable(props) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
 
-  return (
+  return (    
     <React.Fragment>
       <TableRow>
         <TableCell size="medium" component="th" scope="row" onClick={() => setOpen(!open)}>
@@ -27,7 +25,7 @@ function CollapsibleTable(props) {
         </TableCell>
       </TableRow>
       <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0, paddingLeft: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box margin={1}>
               <Typography variant="h6" gutterBottom component="div">
