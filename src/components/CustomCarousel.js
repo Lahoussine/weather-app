@@ -12,7 +12,7 @@ function CustomCarousel(props) {
         <Carousel.Item>
           <div className="main">
             <div>Wind</div>
-            <Compass></Compass>
+            <Compass direction = {75}></Compass>
           </div>
 
           <Carousel.Caption>

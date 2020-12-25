@@ -35,16 +35,37 @@ function Compass(props) {
 
     const [state, setState] = useState(props)
     const svg = useRef();
-
+    console.log("Trigonometrie")
+    console.log(Math.sin(Math.PI / 4))
+    console.log("Direction")
+    console.log(props.direction)
     return (
         <React.Fragment>
             <svg id="compass" ref={svg => {
+                var theta1= 2*Math.PI*props.direction/360;
+                var theta =(2*Math.PI- theta1)+Math.PI/2;
+
+                var pointer1 = document.createElementNS(svgNS, "circle");
+                pointer1.setAttributeNS(null, "cx", 150 + 145 * Math.cos(theta));
+                pointer1.setAttributeNS(null, "cy", 150 - 145 * Math.sin(theta));
+                pointer1.setAttributeNS(null, "r", 5);
+                pointer1.setAttributeNS(null, "fill", "red");
+                pointer1.setAttributeNS(null, "fill-opacity", 0.5);
+                svg.appendChild(pointer1);
 
                 var pointer = document.createElementNS(svgNS, "polygon");
                 pointer.setAttributeNS(null, "points", "150,0 155,12 145,12");
                 pointer.setAttributeNS(null, "fill", "red");
 
                 svg.appendChild(pointer);
+
+                var c1 = document.createElementNS(svgNS, "circle");
+                c1.setAttributeNS(null, "cx", 0);
+                c1.setAttributeNS(null, "cy", 0);
+                c1.setAttributeNS(null, "r", 5);
+                c1.setAttributeNS(null, "fill", "blue");
+                c1.setAttributeNS(null, "fill-opacity", 0.5);
+                svg.appendChild(c1);
 
 
                 var c = document.createElementNS(svgNS, "circle");
