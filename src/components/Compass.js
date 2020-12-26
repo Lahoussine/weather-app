@@ -39,7 +39,11 @@ function Compass(props) {
     return (
         <React.Fragment>
             <svg id="compass" ref={svg => {
-
+                if (svg == null) {
+                    //when closing expandable row, svg is null thwn we get error
+                    //to avoid this, if svg ref is null then do nothing and return
+                    return;
+                }
                 var pointer = document.createElementNS(svgNS, "polygon");
                 pointer.setAttributeNS(null, "points", "150,0 155,12 145,12");
                 pointer.setAttributeNS(null, "fill", "red");
