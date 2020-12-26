@@ -35,6 +35,10 @@ function Compass(props) {
 
     const [state, setState] = useState(props)
     const svg = useRef();
+    console.log("#####Compass props#####")
+    console.log('Wind Deg '+props?.row?.wind_deg)
+    console.log('Wind Speed '+props?.row?.wind_speed)
+    console.log("#####Compass props#####")
 
     return (
         <React.Fragment>

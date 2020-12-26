@@ -6,13 +6,16 @@ import Compass from './Compass'
 
 
 function CustomCarousel(props) {
+  console.log("#####CustomCarousel props#####")
+  console.log(props)
+  console.log("#####CustomCarousel props#####")
   return (
     <React.Fragment>
-      <Carousel >
+      <Carousel slide={false}>
         <Carousel.Item>
           <div className="main">
             <div>Wind</div>
-            <Compass></Compass>
+            <Compass row = {props?.row}></Compass>
           </div>
 
           <Carousel.Caption>
