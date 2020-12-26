@@ -35,14 +35,26 @@ function Compass(props) {
 
     const [state, setState] = useState(props)
     const svg = useRef();
-    console.log("Trigonometrie")
-    console.log(Math.sin(Math.PI / 4))
     console.log("Direction")
-    console.log(props.direction)
+    console.log(props?.row?.wind_deg)
+    console.log("Vitesse")
+    console.log(props?.row?.wind_speed)
+
+    console.log("#####Compass props#####")
+    console.log('Wind Deg '+props?.row?.wind_deg)
+    console.log('Wind Speed '+props?.row?.wind_speed)
+    console.log("#####Compass props#####")
+
     return (
         <React.Fragment>
             <svg id="compass" ref={svg => {
-                var theta1= 2*Math.PI*props.direction/360;
+                if (svg == null) {
+                    //when closing expandable row, svg is null thwn we get error
+                    //to avoid this, if svg ref is null then do nothing and return
+                    return;
+                }
+
+                var theta1= 2*Math.PI*props?.row?.wind_deg/360;
                 var theta =(2*Math.PI- theta1)+Math.PI/2;
 
                 var pointer1 = document.createElementNS(svgNS, "circle");
@@ -52,7 +64,6 @@ function Compass(props) {
                 pointer1.setAttributeNS(null, "fill", "red");
                 pointer1.setAttributeNS(null, "fill-opacity", 0.5);
                 svg.appendChild(pointer1);
-
                 var pointer = document.createElementNS(svgNS, "polygon");
                 pointer.setAttributeNS(null, "points", "150,0 155,12 145,12");
                 pointer.setAttributeNS(null, "fill", "red");

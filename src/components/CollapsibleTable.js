@@ -39,7 +39,7 @@ function CollapsibleTable(props) {
                 </TableHead>
                 <TableBody>
                   <tr>
-                    <td><CustomCarousel></CustomCarousel></td>
+                    <td><CustomCarousel row={row}></CustomCarousel></td>
                   </tr>
                 </TableBody>
               </Table>
