@@ -14,7 +14,8 @@ function CustomCarousel(props) {
       <Carousel slide={false}>
         <Carousel.Item>
           <div className="main">
-            <div>Speed Wind {props?.row?.wind_speed}m/s</div>
+            <div>Wind Speed {props?.row?.wind_speed}m/s</div>
+            <div>Wind direction{props?.row?.wind_deg}°</div>
             <Compass row = {props?.row}></Compass>
           </div>
 
