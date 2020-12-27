@@ -35,15 +35,8 @@ function Compass(props) {
 
     const [state, setState] = useState(props)
     const svg = useRef();
-    console.log("Direction")
-    console.log(props?.row?.wind_deg)
-    console.log("Vitesse")
-    console.log(props?.row?.wind_speed)
 
-    console.log("#####Compass props#####")
-    console.log('Wind Deg '+props?.row?.wind_deg)
-    console.log('Wind Speed '+props?.row?.wind_speed)
-    console.log("#####Compass props#####")
+
 
     return (
         <React.Fragment>
@@ -53,41 +46,27 @@ function Compass(props) {
                     //to avoid this, if svg ref is null then do nothing and return
                     return;
                 }
-
-                var theta1= 2*Math.PI*props?.row?.wind_deg/360;
-                var theta =(2*Math.PI- theta1)+Math.PI/2;
-
-                var pointer1 = document.createElementNS(svgNS, "circle");
-                pointer1.setAttributeNS(null, "cx", 150 + 145 * Math.cos(theta));
-                pointer1.setAttributeNS(null, "cy", 150 - 145 * Math.sin(theta));
-                pointer1.setAttributeNS(null, "r", 5);
-                pointer1.setAttributeNS(null, "fill", "red");
-                pointer1.setAttributeNS(null, "fill-opacity", 0.5);
-                svg.appendChild(pointer1);
+                
+                var H= svg.height.baseVal.value
+                var W= svg.width.baseVal.value
+                //To do calculate triangle rotation
                 var pointer = document.createElementNS(svgNS, "polygon");
-                pointer.setAttributeNS(null, "points", "150,0 155,12 145,12");
+                var pointCoordinate = W/2+",0 "+((W/2)+5)+",12 "+((W/2)-5)+",12";
+                pointer.setAttributeNS(null, "points", pointCoordinate );
                 pointer.setAttributeNS(null, "fill", "red");
-
+                pointer.setAttributeNS(null, "transform", "rotate(" + props?.row?.wind_deg  + ","+ W/2+", "+H/2+")");
                 svg.appendChild(pointer);
-
-                var c1 = document.createElementNS(svgNS, "circle");
-                c1.setAttributeNS(null, "cx", 0);
-                c1.setAttributeNS(null, "cy", 0);
-                c1.setAttributeNS(null, "r", 5);
-                c1.setAttributeNS(null, "fill", "blue");
-                c1.setAttributeNS(null, "fill-opacity", 0.5);
-                svg.appendChild(c1);
 
 
                 var c = document.createElementNS(svgNS, "circle");
-                c.setAttributeNS(null, "cx", 150);
-                c.setAttributeNS(null, "cy", 150);
+                c.setAttributeNS(null, "cx", W/2 );
+                c.setAttributeNS(null, "cy", H/2 );
                 c.setAttributeNS(null, "r", 20);
                 c.setAttributeNS(null, "fill", "white");
                 c.setAttributeNS(null, "fill-opacity", 0.1);
                 svg.appendChild(c);
-                drawCenterLine(150, 100, 150, 200, svg);
-                drawCenterLine(100, 150, 200, 150, svg);
+                drawCenterLine(W/2, 100, W/2, 200, svg);
+                drawCenterLine(100, H/2, 200, H/2, svg);
                 drawCardinalDirection(143, 72, "N", svg);
                 drawCardinalDirection(228, 158, "E", svg);
                 drawCardinalDirection(143, 242, "S", svg);
