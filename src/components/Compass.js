@@ -46,7 +46,7 @@ function Compass(props) {
                     //to avoid this, if svg ref is null then do nothing and return
                     return;
                 }
-                
+                //get size of current svg
                 var H= svg.height.baseVal.value
                 var W= svg.width.baseVal.value
                 //To do calculate triangle rotation
