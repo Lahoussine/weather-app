@@ -11,8 +11,6 @@ import { AreaChart, Area, XAxis, YAxis, Legend, ResponsiveContainer } from 'rech
 import CollapsibleTable from './CollapsibleTable';
 
 
-let dataWeather = [];
-
 const formatXAxis = (unix_timestamp) => {
   var date = new Date(unix_timestamp * 1000);
   var dd = date.getDate();
@@ -44,7 +42,7 @@ const styles = theme => ({
 class History extends Component {
   constructor(props) {
     super(props);
-    this.state = { weather: [], position: [] };
+    this.state = { weather: [], position: [], pollution:[], };
 
   }
   componentDidMount() {
@@ -55,22 +53,38 @@ class History extends Component {
         lat = position.coords.latitude;
         lon = position.coords.longitude;
         //meteo actuelle weather?
+
+        //SWITCH TO LOCALHOST TO TEST SPRing boot proxy
+        let pollution = 'https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=' + lat + '&lon=' + lon + '&units=metric&appid=' + process.env.REACT_APP_OPEN_WEATHER_TOKEN;
+        //let pollution = 'http://localhost:8081/ApiCallerProxyController/airpollution?lat=' + lat + '&lon=' + lon + '&token='+ process.env.REACT_APP_OPEN_WEATHER_TOKEN;
         let weatherCurrent = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=metric&appid=' + process.env.REACT_APP_OPEN_WEATHER_TOKEN;
+        //let weatherCurrent = 'http://localhost:8081/ApiCallerProxyController/onecall?lat=' + lat + '&lon=' + lon + '&token='+ process.env.REACT_APP_OPEN_WEATHER_TOKEN;
+        
+        
         // forecast pour les prevision par default retourne une liste de 7
         //let weatherForecast = 'https://api.openweathermap.org/data/2.5/forecast/daily?lat='+lat+'&lon='+lon+'&units=metric&appid=526309393592f5cf6ed361609dfd8e78';
         //'https://api.openweathermap.org/data/2.5/forecast/daily?q=Neuchatel&units=metric&appid=526309393592f5cf6ed361609dfd8e78')
         fetch(weatherCurrent)
           .then(res => res.json())
           .then((data) => {
-
-
-            //dataWeather =getTemperaturesHourly(data);
-            dataWeather = data;
             this.setState({
               weather: data,
               // temp: data.main.temp,
               position: position
             });
+          })
+          .catch(console.log('error'))
+
+          fetch(pollution)
+          .then(res => res.json())
+          .then((data) => {           
+            this.setState({
+              weather: this.state.weather,
+              pollution: data
+
+            });
+            console.log("######POLLUTION DATA ")
+            console.log(this.state)
           })
           .catch(console.log('error'))
 
@@ -88,10 +102,10 @@ class History extends Component {
         <div className="history-row space-between">
           <div className="column card-dark">
             <div className="chart-title">Température</div>
-            <div className="chart-value">{dataWeather?.current?.temp}°</div>
+            <div className="chart-value">{this.state.weather?.current?.temp}°</div>
             <ResponsiveContainer>
               <AreaChart
-                data={dataWeather.daily} margin={{ top: 0, right: -20, left: 0, bottom: 15, }}>
+                data={this.state.weather.daily} margin={{ top: 0, right: -20, left: 0, bottom: 15, }}>
                 <defs>
                   <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
@@ -106,9 +120,9 @@ class History extends Component {
           <div className="column card-dark">
 
             <div className="chart-title">Humidité</div>
-            <div className="chart-value">{dataWeather?.current?.humidity}%</div>
+            <div className="chart-value">{this.state.weather?.current?.humidity}%</div>
             <ResponsiveContainer>
-              <AreaChart data={dataWeather.daily} margin={{ top: 0, right: -20, left: 0, bottom: 15, }}>
+              <AreaChart data={this.state.weather.daily} margin={{ top: 0, right: -20, left: 0, bottom: 15, }}>
                 <defs>
                   <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
@@ -125,11 +139,11 @@ class History extends Component {
           </div>
           <div className="column card-dark">
             <div className="chart-title">Pression </div>
-            <div className="chart-value">{dataWeather?.current?.pressure} hPa</div>
+            <div className="chart-value">{this.state.weather?.current?.pressure} hPa</div>
             <ResponsiveContainer>
               <AreaChart
 
-                data={dataWeather.daily} margin={{ top: 0, right: -20, left: 0, bottom: 15, }}>
+                data={this.state.weather.daily} margin={{ top: 0, right: -20, left: 0, bottom: 15, }}>
                 <defs>
                   <linearGradient id="colorAmt" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#923CB5" stopOpacity={0.8} />
@@ -142,38 +156,11 @@ class History extends Component {
             </ResponsiveContainer>
           </div>
         </div>
-        {/*
-          <div className="history-row space-between">
-            <TableContainer component={Paper}>
-              <Table className={styles.table} size="small" aria-label="a dense table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="center">Date</TableCell>
-                    <TableCell align="center">Température</TableCell>
-                    <TableCell align="center">Humidité</TableCell>
-                    <TableCell align="center">Pression</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {dataWeather?.daily?.map((row) => (
-                    <TableRow key={row.temp.day}>
-                      <TableCell align="center">{formatXAxis(row.dt)}</TableCell>
-                      <TableCell align="center">{row.temp.day}</TableCell>
-                      <TableCell align="center">{row.humidity}</TableCell>
-                      <TableCell align="center">{row.pressure}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </div>
-          */
-        }
         <div className="history-row space-between fit-content">
           <TableContainer component={Paper}>
             <Table>
               <TableBody>
-                {dataWeather?.daily?.map(row => (
+                {this.state.weather?.daily?.map(row => (
                   <CollapsibleTable key={row.dt} row={row} />
                 ))}
               </TableBody>
