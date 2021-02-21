@@ -55,10 +55,10 @@ class History extends Component {
         //meteo actuelle weather?
 
         //SWITCH TO LOCALHOST TO TEST SPRing boot proxy
-        let pollution = 'https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=' + lat + '&lon=' + lon + '&units=metric&appid=' + process.env.REACT_APP_OPEN_WEATHER_TOKEN;
-        //let pollution = 'http://localhost:8081/ApiCallerProxyController/airpollution?lat=' + lat + '&lon=' + lon + '&token='+ process.env.REACT_APP_OPEN_WEATHER_TOKEN;
-        let weatherCurrent = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=metric&appid=' + process.env.REACT_APP_OPEN_WEATHER_TOKEN;
-        //let weatherCurrent = 'http://localhost:8081/ApiCallerProxyController/onecall?lat=' + lat + '&lon=' + lon + '&token='+ process.env.REACT_APP_OPEN_WEATHER_TOKEN;
+        //let pollution = 'https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=' + lat + '&lon=' + lon + '&units=metric&appid=' + process.env.REACT_APP_OPEN_WEATHER_TOKEN;
+        let pollution = 'https://ancient-woodland-73766.herokuapp.com/ApiCallerProxyController/airpollution?lat=' + lat + '&lon=' + lon + '&token='+ process.env.REACT_APP_OPEN_WEATHER_TOKEN;
+        //let weatherCurrent = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=metric&appid=' + process.env.REACT_APP_OPEN_WEATHER_TOKEN;
+        let weatherCurrent = 'https://ancient-woodland-73766.herokuapp.com/ApiCallerProxyController/onecall?lat=' + lat + '&lon=' + lon + '&token='+ process.env.REACT_APP_OPEN_WEATHER_TOKEN;
         
         
         // forecast pour les prevision par default retourne une liste de 7
